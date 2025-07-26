@@ -12,55 +12,150 @@
 
 ## 📌 Google Cloud Core Data Services
 
-This section highlights key Google Cloud Platform (GCP) services aligned with the **Professional Data Engineer** exam guide, focusing on designing, building, and operationalizing data processing systems.
+A comprehensive overview of GCP services aligned with the **Google Cloud Professional Data Engineer** exam guide. This breakdown follows the typical data pipeline lifecycle—from ingestion to processing, storage, analysis, and beyond.
 
 ---
 
 ### 🔄 Data Ingestion
 
 - **Cloud Pub/Sub**  
-  A globally distributed, real-time messaging service that decouples senders and receivers of data. Ideal for ingesting event streams and building event-driven architectures.
+  Real-time messaging service for ingesting event streams at scale. Enables decoupled and asynchronous data ingestion for microservices and streaming analytics.
 
-- **Dataflow (Streaming mode)**  
-  Fully managed service for real-time stream processing using Apache Beam. Ingests, transforms, and enriches data in motion.
+- **Dataflow (Streaming Mode)**  
+  Unified stream processing using Apache Beam for transforming and enriching data in motion.
 
-- **Transfer Services**  
-  Includes Storage Transfer Service and BigQuery Data Transfer Service for batch ingestion from on-prem, other clouds, or SaaS platforms.
+- **BigQuery Data Transfer Service (BQ DTS)**  
+  Scheduled, serverless service to transfer data from Google SaaS (e.g., Google Ads, YouTube) and external sources into BigQuery.
 
-- **Cloud IoT Core** *(retired but was part of exam guide)*  
-  Previously used for ingesting telemetry data from IoT devices securely.
+- **Storage Transfer Service**  
+  Transfer large-scale datasets from on-prem or cloud storage platforms into Cloud Storage.
+
+- **Cloud IoT Core** *(now retired)*  
+  Was used to securely ingest data from IoT devices.
 
 ---
 
 ### 📦 Data Storage
 
 - **Cloud Storage**  
-  Durable and scalable object storage for both structured and unstructured data. Supports lifecycle rules, versioning, and multiple storage classes (Standard, Nearline, Coldline, Archive).
+  Object storage for binary, semi-structured, and unstructured data. Offers multiple storage classes based on access frequency and cost.
 
 - **BigQuery**  
-  Serverless, highly scalable enterprise data warehouse optimized for analytics. Also acts as a long-term analytical storage solution.
+  Columnar, serverless data warehouse designed for petabyte-scale analytical workloads. Ideal for long-term analytical storage.
 
 - **Cloud Spanner**  
-  Globally distributed, strongly consistent relational database with horizontal scalability. Useful for operational workloads needing transactional support.
+  Globally distributed relational database with horizontal scalability, strong consistency, and SQL support.
 
-- **Cloud SQL / Cloud Firestore / Bigtable**  
-  - **Cloud SQL**: Managed SQL (MySQL, PostgreSQL, SQL Server) for transactional workloads.  
-  - **Firestore**: NoSQL document database for serverless apps.  
-  - **Bigtable**: Wide-column NoSQL database ideal for time-series and IoT data storage.
+- **Cloud SQL**  
+  Managed MySQL, PostgreSQL, and SQL Server for transactional workloads with compatibility and ease of use.
 
----
+- **Cloud Firestore**  
+  Serverless, NoSQL document database for high-availability mobile/web apps.
 
-📘 _These core services form the backbone of scalable, secure, and resilient data pipelines on GCP, as emphasized in the GCP Professional Data Engineer exam guide._
-
-
----
-
-## 🛠️ Skills & Proficiency
-- Designing scalable data pipelines using **Pub/Sub**.
-- Implementing secure and cost-efficient storage strategies with **Cloud Storage**.
-- Applying **best practices** in data engineering workflows on GCP.
+- **Cloud Bigtable**  
+  Wide-column, low-latency NoSQL database optimized for IoT, finance, and time-series data.
 
 ---
 
-> _Passionate about exploring scalable data systems and solving real-world problems with cloud-native architectures._
+### ⚙️ Data Processing
+
+- **Dataflow (Batch + Streaming)**  
+  Serverless data processing using Apache Beam for ETL, real-time analytics, and ML pipelines.
+
+- **Dataproc**  
+  Managed Spark, Hadoop, and Hive clusters for scalable batch data processing with native ecosystem integration.
+
+- **BigQuery**  
+  Also serves as a processing engine for analytics via SQL (ELT model).
+
+- **Dataprep by Trifacta**  
+  Visual data preparation tool for cleaning and transforming data with minimal code.
+
+- **Vertex AI Pipelines**  
+  For training and serving ML models as part of data workflows.
+
+---
+
+### 🔄 Orchestration & Automation
+
+- **Cloud Composer**  
+  Managed Apache Airflow for authoring, scheduling, and monitoring complex workflows.
+
+- **Workflows**  
+  Serverless orchestration to connect services and APIs with step-by-step logic.
+
+- **Cloud Functions / Cloud Run**  
+  Lightweight compute services for triggering transformations or pipeline steps.
+
+---
+
+### 📊 Data Analysis
+
+- **BigQuery**  
+  Powerful SQL-based analytics at scale; supports ML, geospatial, BI Engine acceleration, and federated queries.
+
+- **Looker / Looker Studio**  
+  Modern business intelligence platforms for interactive dashboards and self-service data exploration.
+
+- **Vertex AI**  
+  Unified ML platform for model building, training, tuning, deployment, and monitoring.
+
+- **AutoML**  
+  No-code ML model creation for vision, NLP, tabular data, etc.
+
+---
+
+### 📈 Visualization
+
+- **Looker / Looker Studio**  
+  - Drag-and-drop dashboarding tools for real-time reporting.  
+  - Integrates natively with BigQuery and other data sources.
+
+- **Data Studio (now part of Looker)**  
+  Easy-to-use, no-code dashboard tool for business users.
+
+---
+
+### 🔍 Monitoring & Logging
+
+- **Cloud Logging (formerly Stackdriver Logging)**  
+  Collects logs from GCP resources, applications, and services.
+
+- **Cloud Monitoring**  
+  Provides visibility into performance metrics, uptime, and system health.
+
+- **Error Reporting & Debugger**  
+  Useful for monitoring application reliability and identifying runtime exceptions.
+
+---
+
+### 🔐 Security & Governance
+
+- **IAM (Identity and Access Management)**  
+  Fine-grained access control for services, roles, and resources.
+
+- **VPC Service Controls**  
+  Adds an additional security perimeter around sensitive data services like BigQuery, Cloud Storage, etc.
+
+- **Cloud Key Management Service (KMS)**  
+  Centralized key management for encrypting data.
+
+- **Data Loss Prevention (DLP)**  
+  Automatically detects and redacts sensitive PII/PCI/PHI data across structured and unstructured datasets.
+
+- **Cloud Audit Logs**  
+  Provides a detailed record of every interaction with GCP resources for compliance and auditing.
+
+---
+
+## ✅ Summary
+
+This layered service architecture enables Data Engineers to:
+
+- Ingest, store, and process vast amounts of data.
+- Operationalize machine learning and analytical models.
+- Build secure, scalable, and governed cloud-native data systems.
+- Drive business intelligence and informed decision-making.
+
+> 📌 _These tools are essential for designing and maintaining data systems, as outlined in the GCP Professional Data Engineer certification exam guide._
 
