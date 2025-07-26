@@ -1,0 +1,56 @@
+# Install virtualenv to create isolated Python environments
+sudo apt-get install -y virtualenv
+
+# Create a virtual environment named 'venv' using Python 3
+python3 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate
+
+# Upgrade pip and install the Google Cloud Pub/Sub client library
+pip install --upgrade google-cloud-pubsub
+
+# Clone the official Google Cloud Pub/Sub Python samples repository
+git clone https://github.com/googleapis/python-pubsub.git
+
+# Change directory to the code samples for Pub/Sub snippets
+cd python-pubsub/samples/snippets
+
+# Print the currently set Google Cloud Project ID (ensure this is set beforehand)
+echo $GOOGLE_CLOUD_PROJECT
+
+# Display the contents of the publisher script (for review)
+cat publisher.py
+
+# Display help message and usage instructions for the publisher script
+python publisher.py -h
+
+# Create a Pub/Sub topic named "MyTopic" in the specified project
+python publisher.py $GOOGLE_CLOUD_PROJECT create MyTopic
+
+# List all topics in the specified project
+python publisher.py $GOOGLE_CLOUD_PROJECT list
+
+# Create a Pub/Sub subscription "MySub" for topic "MyTopic"
+python subscriber.py $GOOGLE_CLOUD_PROJECT create MyTopic MySub
+
+# List all subscriptions in the specified project
+python subscriber.py $GOOGLE_CLOUD_PROJECT list-in-project
+
+# Display help message and usage instructions for the subscriber script
+python subscriber.py -h
+
+# Publish a simple test message to the "MyTopic" topic using gcloud CLI
+gcloud pubsub topics publish MyTopic --message "Hello"
+
+# Publish a message containing the publisher’s name
+gcloud pubsub topics publish MyTopic --message "Publisher's name is <YOUR NAME>"
+
+# Publish a message describing the publisher's favorite food
+gcloud pubsub topics publish MyTopic --message "Publisher likes to eat <FOOD>"
+
+# Publish a message praising Google Pub/Sub
+gcloud pubsub topics publish MyTopic --message "Publisher thinks Pub/Sub is awesome"
+
+# Start receiving and displaying messages from subscription "MySub"
+python subscriber.py $GOOGLE_CLOUD_PROJECT receive MySub
