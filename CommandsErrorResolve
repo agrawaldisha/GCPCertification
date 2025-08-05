@@ -1,108 +1,37 @@
-1. Set or Check Active Project
-Set project:
+CLI Commands: 
 
-bash
-gcloud config set project PROJECT_ID
-Check current project:
+Set Project: gcloud config set project PROJECT_ID
+Check Current project: gcloud config get-value project
 
-bash
-gcloud config get-value project
-Purpose: Ensure all commands run in the correct Google Cloud project context.
 
-2. Authenticate User
-Login:
-
-bash
-gcloud auth login
-Purpose: Authenticate your Google user account to gain permissions for GCP operations.
-
+Authenticate User: gcloud auth login
 Error: Permission errors despite Owner role → often resolved by re-authenticating.
 
-3. Check Enabled APIs
-List enabled APIs:
+API's & Services
 
-bash
-gcloud services list
-List available APIs:
-
-bash
-gcloud services list --available
-Enable API:
-
-bash
-gcloud services enable SERVICE_NAME
+List enabled APIs: gcloud services list
+List available APIs: gcloud services list --available
+Enable API: gcloud services enable SERVICE_NAME
 Typical required APIs:
+  storage.googleapis.com (Cloud Storage)
+  iam.googleapis.com (IAM)
+  cloudresourcemanager.googleapis.com (Project management)
 
-storage.googleapis.com (Cloud Storage)
 
-iam.googleapis.com (IAM)
-
-cloudresourcemanager.googleapis.com (Project management)
-
-Purpose: Confirm necessary APIs are enabled for resource management.
-
-4. Make Bucket or Objects Public Using gsutil
-Make entire bucket objects public (read access):
-
-bash
-gsutil -m acl ch -r -u AllUsers:R gs://BUCKET_NAME
-Make single object public:
-
-bash
-gsutil acl ch -u AllUsers:R gs://BUCKET_NAME/OBJECT_NAME
-Make future objects public by default:
-
-bash
-gsutil defacl set public-read gs://BUCKET_NAME
+Buckets:
+Make Bucket or Objects Public Using gsutil Make entire bucket objects public (read access): gsutil -m acl ch -r -u AllUsers:R gs://BUCKET_NAME
+Make single object public: gsutil acl ch -u AllUsers:R gs://BUCKET_NAME/OBJECT_NAME
+Make future objects public by default: gsutil defacl set public-read gs://BUCKET_NAME
 Purpose: Grant public read access to storage objects.
 
-Error:
-
-AccessDeniedException 403 storage.objects.list → your account lacks permission to list or modify bucket ACLs.
-
-Solution: Request or assign proper IAM roles (see below).
-
-5. Grant IAM Role to User (requires existing permissions)
-Grant role to user:
-
-bash
-gsutil iam ch user:USER_EMAIL:ROLE gs://BUCKET_NAME
-Example: Grant Storage Object Admin role:
-
-bash
-gsutil iam ch user:agarwaldisha294@gmail.com:objectAdmin gs://healthcare-bucket-22032025
+IAM & Access Management 
+Grant role to user: gsutil iam ch user:USER_EMAIL:ROLE gs://BUCKET_NAME
+Example: Grant Storage Object Admin role: gsutil iam ch user:agarwaldisha294@gmail.com:objectAdmin gs://healthcare-bucket-22032025
 Purpose: Assign specific permissions to users on bucket-level IAM.
 
-Error:
+Errors;
+Bq: Error while reading table: patients_ha, error message: Failed to parse JSON: No object found when new array is started.; BeginArray returned false; Parser terminated before end of string File: patients_04082025.json
+Resolution:- But BigQuery expects one JSON object per line when reading JSON newline-delimited format (also called NDJSON or JSONL):
+json_data = df.toPandas().to_json(orient="records", lines=True) if count > 0 else "" -> fixed earlier else ="[]"
 
-AccessDeniedException 403 storage.buckets.getIamPolicy → your account does not have permission to modify IAM policies.
 
-Solution: Must be Project Owner or have permission to modify IAM. Request access from Org or Project Admin.
-
-6. Identify and Request Admin Access
-How to request:
-Contact project owner/admin and request roles:
-
-Project Owner (full admin permissions)
-
-Project Editor (broad permissions)
-
-Storage Admin (for storage-specific actions)
-
-Verify IAM roles:
-View in Cloud Console → IAM & Admin → check roles assigned to your email.
-
-Error:
-
-Lacking permission to perform actions despite being project “owner” shown in Cloud Console → often caused by stale authentication, wrong project context, or organizational policy restrictions.
-
-Solution: Re-authenticate and confirm project; escalate to Organization Admin if needed.
-
-Common Errors Summary
-Error Message	Cause	Resolution
-403 storage.objects.list	Missing permission to list bucket objects	Assign Storage Object Viewer or higher
-403 storage.buckets.getIamPolicy	Missing permission to retrieve or modify IAM policies	Assign Project Owner or equivalent
-403 storage.objects.get	Missing read permission for specific objects	Assign Storage Object Viewer to user or public ACLs
-Connection timed out or CommunicationsException (MySQL)	Network or server connectivity issue	Check MySQL server status, network/firewall
-404 Not found: Dataset	Missing BigQuery dataset	Confirm dataset existence and permissions
-This documentation provides a clear and structured reference of commands, their purposes, and how to troubleshoot common permission errors encountered managing Google Cloud Storage and project-level access.
