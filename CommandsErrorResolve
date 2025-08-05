@@ -29,6 +29,10 @@ Grant role to user: gsutil iam ch user:USER_EMAIL:ROLE gs://BUCKET_NAME
 Example: Grant Storage Object Admin role: gsutil iam ch user:agarwaldisha294@gmail.com:objectAdmin gs://healthcare-bucket-22032025
 Purpose: Assign specific permissions to users on bucket-level IAM.
 
+SQL Server
+mysql -h 34.9.188.225 -P 3306 -u myuser -p.  -> establish connection with the SQL server 
+
+
 Errors;
 Bq: Error while reading table: patients_ha, error message: Failed to parse JSON: No object found when new array is started.; BeginArray returned false; Parser terminated before end of string File: patients_04082025.json
 Resolution:- But BigQuery expects one JSON object per line when reading JSON newline-delimited format (also called NDJSON or JSONL):
