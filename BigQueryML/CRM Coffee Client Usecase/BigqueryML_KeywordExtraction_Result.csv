@@ -1,0 +1,309 @@
+ml_generate_text_llm_result,social_media_source,review_text,customer_id,location_id,review_datetime
+"```json
+{
+  ""keywords"": [""coffee"", ""great""]
+}
+```
+",Facebook,Great coffee,3498,1,2024-11-10T12:57:10
+"```json
+{
+  ""keywords"": [""location"", ""delicious"", ""coffee""]
+}
+```
+",Facebook,Good location and delicious coffee,3174,1,2024-02-05T18:02:10
+"```json
+{
+  ""keywords"": [""coffee"", ""fresh brewed"", ""barista"", ""friendly"", ""regular stop""]
+}
+```
+",Facebook,I enjoyed my fresh brewed coffee.  The barista was very friendly.  I will make this a regular stop.,5634,1,2024-06-07T07:48:10
+"```json
+{
+  ""keywords"": [""great service"", ""coffee"", ""milk alternatives"", ""variety""]
+}
+```
+",Facebook,The service was great and the coffee was even better. I especially liked the variety of milk alternatives.,4364,1,2024-03-10T23:41:10
+"```json
+{
+  ""keywords"": [""coffee"", ""friendly staff"", ""go again""]
+}
+```
+",Facebook,"Great coffee and friendly staff, will definitely go again.",9464,1,2024-05-15T23:07:10
+"```json
+{
+  ""keywords"": [""service"", ""great"", ""staff"", ""friendly"", ""helpful"", ""coffee"", ""made"", ""way""]
+}
+```
+",Facebook,"The service at this location was great. The staff was friendly and helpful, and they made sure my coffee was made just the way I liked it.",4433,1,2024-06-26T10:23:10
+"```json
+{
+  ""keywords"": [""great experience"", ""short wait time"", ""friendly staff"", ""fast"", ""brewed coffee"", ""delicious"", ""cozy atmosphere"", ""relax"", ""positive experience"", ""recommend""]
+}
+```
+",Facebook,"I had a great experience at this location! The wait time was short, and the staff were friendly and fast. I ordered a brewed coffee and it was delicious. The seating area has a cozy atmosphere and is a nice place to relax. Overall, I had a positive experience and would recommend this location.",8399,1,2024-09-06T15:07:10
+"```json
+{
+  ""keywords"": [""coffee truck"", ""amazing"", ""staff"", ""friendly"", ""welcoming"", ""coffee"", ""fresh"", ""delicious"", ""relax"", ""enjoy""]
+}
+```
+",Facebook,"This coffee truck is amazing! The staff are always so friendly and welcoming, and the coffee is always fresh and delicious. I love coming here to relax and enjoy a cup of coffee.",2274,1,2024-12-26T11:43:10
+"```json
+{
+  ""keywords"": [""coffee truck"", ""great experience"", ""good service"", ""short wait time"", ""delicious coffee"", ""come back""]
+}
+```
+",Facebook,"I had a great experience at this coffee truck. The service was good, the wait time was short and the coffee was delicious. I would definitely come back.",8452,1,2024-02-05T15:41:10
+"```json
+{
+  ""keywords"": [""great service"", ""amazing coffee"", ""wonderful place""]
+}
+```
+",Facebook,The service was great. The coffee was amazing. The place was wonderful.,7091,1,2024-02-18T07:00:10
+"```json
+{
+  ""keywords"": [""friendly staff"", ""great coffee"", ""recommend"", ""good cup of coffee""]
+}
+```
+",Facebook,The staff was very friendly and the coffee was great! I would definitely recommend this place to anyone looking for a good cup of coffee.,3309,1,2024-01-13T12:22:10
+"```json
+{
+  ""keywords"": [""good service"", ""convenient"", ""cramped"", ""average seating"", ""decent selection"", ""drinks"", ""knowledgeable staff"", ""perfectly made drink""]
+}
+```
+",Facebook,"Good service. This location is convenient but cramped. The seating is pretty average. Still, they have a decent selection of drinks.  The staff seemed knowledgeable and made my drink perfectly.",8088,1,2024-03-27T04:15:10
+"```json
+{
+  ""keywords"": [""coffee truck"", ""great experience"", ""service"", ""good"", ""coffee"", ""better"", ""recommend"", ""good cup of coffee""]
+}
+```
+",Facebook,I had a great experience at this coffee truck. The service was good and the coffee was even better. I would definitely recommend this place to anyone looking for a good cup of coffee.,6867,1,2024-08-01T07:13:10
+"```json
+{
+  ""keywords"": [""friendly"", ""service"", ""fast"", ""coffee"", ""excellent"", ""recommend""]
+}
+```
+",Facebook,The staff was very friendly and the service was fast. The coffee was excellent and I would definitely recommend this place to others.,8704,1,2024-03-08T05:29:10
+"```json
+{
+  ""keywords"": [""good service"", ""staff"", ""line moving"", ""drink"", ""hot"", ""delicious"", ""options""]
+}
+```
+",Facebook,Good service the staff kept the line moving and my drink was hot and delicious. So many options to choose from.,6470,1,2024-03-10T07:42:10
+"```json
+{
+  ""keywords"": [""coffee truck"", ""great experience"", ""service"", ""good"", ""coffee"", ""delicious"", ""recommend""]
+}
+```
+",Facebook,I had a great experience at this coffee truck. The service was good and the coffee was delicious. I would definitely recommend this place to others.,3615,1,2024-09-29T13:24:10
+"```json
+{
+  ""keywords"": [""service"", ""great"", ""employees"", ""friendly"", ""helpful""]
+}
+```
+",Facebook,The service at this location was great! The employees were friendly and helpful.,6004,1,2024-04-10T00:33:10
+"```json
+{
+  ""keywords"": [""customer service"", ""wait time"", ""seating area"", ""milk alternatives"", ""coffee"", ""flavorful"", ""quality"", ""recommend"", ""coffee truck""]
+}
+```
+",Facebook,The customer service was great and the wait time was short. I appreciated the cozy seating area and the variety of milk alternatives available. The coffee itself was flavorful and had a consistent quality. I would definitely recommend this coffee truck to others.,5511,1,2024-01-28T23:27:10
+"```json
+{
+  ""keywords"": [""coffee truck"", ""years"", ""great experience"", ""coffee"", ""fresh"", ""delicious"", ""staff"", ""friendly"", ""welcoming"", ""cozy seating areas"", ""relaxing""]
+}
+```
+",Google,"I've been coming to this coffee truck for years, and I've always had a great experience. The coffee is always fresh and delicious, and the staff is friendly and welcoming. I especially love the cozy seating areas, which are perfect for relaxing with a cup of coffee.",7143,1,2024-04-11T08:15:10
+"```json
+{
+  ""keywords"": [""friendly staff"", ""knowledgeable staff"", ""cozy atmosphere"", ""delicious coffee"", ""seating options"", ""great coffee experience"", ""recommend""]
+}
+```
+",Google,"Very friendly and knowledgeable staff, cozy atmosphere, delicious coffee, and lots of seating options. I really enjoyed my visit here and would definitely recommend this location to anyone looking for a great coffee experience",1080,1,2024-10-15T16:09:10
+"```json
+{
+  ""keywords"": [""disappointing"", ""coffee truck"", ""terrible service"", ""rude staff"", ""inattentive"", ""long wait"", ""mediocre food"", ""weak coffee"", ""stale pastries"", ""cramped"", ""noisy"", ""high prices"", ""not recommend""]
+}
+```
+",Google,"I had a very disappointing experience at this coffee truck. The service was terrible - the staff were rude and inattentive, and we had to wait a long time for our food and drinks. The food itself was mediocre at best - the coffee was weak and the pastries were stale. The shop itself was also very cramped and noisy, making it difficult to relax and enjoy our time there. To top it all off, the prices were very high, making the whole experience even worse. I would definitely not recommend this place to anyone.",8844,1,2024-02-12T09:03:10
+"```json
+{
+  ""keywords"": [""coffee"", ""hot"", ""fresh"", ""delicious"", ""location"", ""come back""]
+}
+```
+",Google,"The coffee was hot, fresh, and delicious. I would definitely come back to this location again.",6126,1,2024-05-02T06:35:10
+"```json
+{
+  ""keywords"": [""cozy seating"", ""milk alternatives"", ""staff"", ""friendly"", ""helpful"", ""coffee"", ""delicious""]
+}
+```
+",Google,"I was very impressed with the cozy seating areas and the variety of milk alternatives. The staff was friendly and helpful, and the coffee was delicious. I will definitely be coming back to this location.",9889,1,2024-10-02T12:17:10
+"```json
+{
+  ""keywords"": [""coffee"", ""strong"", ""flavorful"", ""staff"", ""friendly"", ""loyalty program""]
+}
+```
+",Google,The coffee is strong and flavorful and the staff is very friendly. I love their loyalty program!,4840,1,2024-11-15T03:47:10
+"```json
+{
+  ""keywords"": [""coffee"", ""friendly staff"", ""cozy atmosphere"", ""relax"", ""enjoy""]
+}
+```
+",Google,"Great coffee, friendly staff, and a cozy atmosphere. I love coming here to relax and enjoy a cup of coffee.",4725,1,2024-05-14T03:09:10
+"```json
+{
+  ""keywords"": [""service"", ""disorganized"", ""staff"", ""friendly"", ""attentive"", ""ordered"", ""items"", ""minutes"", ""wait time""]
+}
+```
+",Google,The service could be improved. I think it’s disorganized.  The staff was very friendly and attentive.  But we ordered two items and one came out after 28 minutes and the second came out after another 20 minutes.,8206,1,2024-01-16T20:00:10
+"```json
+{
+  ""keywords"": [""coffee"", ""ok"", ""atmosphere"", ""relaxing"", ""cozy"", ""seating area"", ""curl up"", ""relax""]
+}
+```
+",Instagram,The coffee was ok but the atmosphere was so relaxing. So many cozy seating area to curl up in and relax.,8118,1,2024-09-16T10:26:10
+"```json
+{
+  ""keywords"": [""cozy seating"", ""quiet location"", ""relax"", ""freshly brewed coffee"", ""knowledgeable staff"", ""friendly"", ""helpful"", ""great tasting coffee"", ""preferences""]
+}
+```
+",Instagram,The cozy seating areas and quiet location provide the perfect atmosphere to relax and enjoy the freshly brewed coffee.  The knowledgeable staff was friendly and helpful in selecting a great tasting coffee to suit my preferences,10230,1,2024-08-21T05:10:10
+"```json
+{
+  ""keywords"": [""coffee truck"", ""great experience"", ""good service"", ""short wait"", ""latte"", ""delicious"", ""cozy atmosphere"", ""inviting"", ""plenty of places to sit"", ""recommend""]
+}
+```
+",Instagram,"I had a great experience at this coffee truck. The service was good, and the wait time was short. I ordered a latte, and it was delicious. The atmosphere was cozy and inviting, and there were plenty of places to sit. I would definitely recommend this coffee truck to others.",4557,1,2024-01-24T04:24:10
+"```json
+{
+  ""keywords"": [""coffee"", ""friendly staff"", ""wait"", ""cozy place""]
+}
+```
+",Instagram,"Great coffee, friendly staff a bit of a wait (5-10 min) but great cozy place.",1265,1,2024-11-02T02:17:10
+"```json
+{
+  ""keywords"": [""coffee"", ""friendly staff"", ""cozy atmosphere"", ""relax"", ""enjoy""]
+}
+```
+",Instagram,"Great coffee, friendly staff, and cozy atmosphere. A great place to relax and enjoy a cup of coffee.",4938,1,2024-12-30T07:02:10
+"```json
+{
+  ""keywords"": [""service"", ""short wait time"", ""coffee"", ""sweet""]
+}
+```
+",Instagram,Good service with a short wait time. The coffee was a little too sweet though.,1854,1,2024-07-13T23:57:10
+"```json
+{
+  ""keywords"": [""coffee"", ""friendly staff"", ""black coffee""]
+}
+```
+",Instagram,"Great coffee, friendly staff.  I usually get the black coffee here.",7084,1,2024-06-01T11:59:10
+"```json
+{
+  ""keywords"": [""clean"", ""inviting"", ""variety of seating"", ""cuddle"", ""coffee"", ""read"", ""tall chair"", ""table"", ""work"", ""projects""]
+}
+```
+",Tiktok,The location was clean and inviting. I also like that there is a variety of seating because sometimes I want to cuddle up with my coffee and read and other times I prefer a tall chair and table so I can work on projects.,5576,1,2024-04-18T06:39:10
+"```json
+{
+  ""keywords"": [""delicious coffee"", ""coffee truck"", ""matcha"", ""barista"", ""friendly"", ""recommended drink""]
+}
+```
+",TripAdvisor,Delicious coffee!!! They are one of the rare coffee trucks that knows how to make good matcha. The barista was really friendly and even recommended a drink for me to try.,6206,1,2024-02-15T21:02:10
+"```json
+{
+  ""keywords"": [""rude"", ""wrong drink"", ""burnt taste"", ""bad service"", ""not returning""]
+}
+```
+",Twitter,The baristas were incredibly rude to me for no reason. One drink was made wrong and the other tasted burnt. I will not be coming back to this location again.,9745,1,2024-09-09T20:26:10
+"```json
+{
+  ""keywords"": [""coffee"", ""strong"", ""taste"", ""headache""]
+}
+```
+",Twitter,The coffee was too strong for my taste and it gave me a headache.,4034,1,2024-07-25T03:20:10
+"```json
+{
+  ""keywords"": [""bad service"", ""rude"", ""unhelpful"", ""wait time"", ""long""]
+}
+```
+",Twitter,"Bad Service.  The staff was rude and unhelpful, and the wait time was over 30 minutes too long.",2909,1,2024-02-06T10:23:10
+"```json
+{
+  ""keywords"": [
+    ""coffee"",
+    ""not hot"",
+    ""drink order"",
+    ""ordered first"",
+    ""average experience"",
+    ""doubt"",
+    ""going back""
+  ]
+}
+```
+",Twitter,The coffee I ordered was not hot and the person behind me got their drink order before me even thought I ordered first. Overall it was an average experience and I doubt I will be going back.,7159,1,2024-04-07T13:59:10
+"```json
+{
+  ""keywords"": [""fast service"", ""peak hours"", ""comfy seating"", ""milk options""]
+}
+```
+",Twitter,service was fast even during peak hours.  comfy seating and lots of different milk options,4585,1,2024-06-04T20:26:10
+"```json
+{
+  ""keywords"": [""great experience"", ""friendly"", ""attentive"", ""delicious"", ""coffee"", ""clean"", ""comfortable"", ""barista"", ""coffee truck""]
+}
+```
+",Twitter,"I had a great experience today! The barista was friendly and attentive, and my coffee was delicious! The coffee truck was also very clean and comfortable. #coffee #barista #clean",3731,1,2024-10-31T03:40:10
+"```json
+{
+  ""keywords"": [""service"", ""wait time"", ""coffee"", ""seating"", ""cozy"", ""areas"", ""customers""]
+}
+```
+",Twitter,"Good service, short wait time for quality coffee.  Lots of seating in cozy areas away from other customers.",3383,1,2024-01-01T22:36:10
+"```json
+{
+  ""keywords"": [""bitter"", ""weak"", ""coffee"", ""not going back""]
+}
+```
+",Twitter,The coffee was too bitter and weak. I will not be going back.,3797,1,2024-05-11T21:20:10
+"```json
+{
+  ""keywords"": [""atmosphere"", ""drinks"", ""friendly"", ""staff"", ""recommended""]
+}
+```
+",Twitter,"Great atmosphere,  and drinks are always on point! Staff was very friendly and recommended some drinks for me to try out!",9574,1,2024-01-07T19:58:10
+"```json
+{
+  ""keywords"": [""coffee truck"", ""fast service"", ""friendly service"", ""delicious coffee"", ""recommend""]
+}
+```
+",Twitter,"I had a great experience at this coffee truck. The service was fast and friendly, and the coffee was delicious. I would definitely recommend this place to others.",9432,1,2024-11-26T00:59:10
+"```json
+{
+  ""keywords"": [""coffee"", ""quality"", ""service"", ""recommend""]
+}
+```
+",Twitter,I was really impressed with the quality of the coffee and the service was great. I would definitely recommend this place to anyone looking for a good cup of coffee.,5980,1,2024-03-27T22:44:10
+"```json
+{
+  ""keywords"": [""coffee"", ""snacks"", ""delicious"", ""cozy seating"", ""short wait time"", ""enjoyable""]
+}
+```
+",Twitter,The coffee and snacks were delicious. The cozy seating areas and short wait time made my visit very enjoyable.”,7664,1,2024-05-02T15:46:10
+"```json
+{
+  ""keywords"": [""noisy"", ""location""]
+}
+```
+",Twitter,Noisy Location',3347,1,2024-05-01T14:39:10
+"```json
+{
+  ""keywords"": [""wait time"", ""short"", ""excellent service"", ""overall""]
+}
+```
+",Twitter,The wait time was short so I got excellent service overall.,5640,1,2024-01-10T00:05:10
+"```json
+{
+  ""keywords"": [""bad service"", ""overpriced"", ""unfriendly"", ""menu"", ""understand""]
+}
+```
+",Yelp,Bad service and very overpriced. They seemed very unfriendly because I did not understand the menu.,7769,1,2024-11-13T00:09:10
