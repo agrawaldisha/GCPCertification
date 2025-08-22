@@ -1,0 +1,2 @@
+spark-submit --packages io.delta:delta-spark_2.12:3.2.0 csv_to_delta.py
+
