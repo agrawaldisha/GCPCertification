@@ -1,0 +1,398 @@
+Data Engineer:-
+
+Roles and Responsibilities -> Type of work they do 
+Tools used by data engineers -> Spark , beam , flink, composer etc
+GCP data services 
+Ingestion
+Storage
+Process
+Anaysis
+
+
+-------------------------------------------------------------------------
+
+Data Engineer:- BIgdata (Volume, Variety, Velocity), tb pb ,ex
+Hadoop Suite-> Hdfs, Mapreduce , Yarn 
+
+
+End- End delivery of data -> Pipelines (ETL,ELT)
+Extract, tranform, load
+Extract , load, transform 
+
+Data Mangaemnt lifecycle
+
+Data Generation
+Raw Data -> Source (Batch (Records -Daily), Streaming (IOT Sensors))
+Data Ingestion -> nifi, informatica ....
+Data Storage -> hdfs
+Data Tranform -> Mapreduce (Spark)
+Warehousing -> OLAP 
+Visual Analytics-> Power BI, tableu
+Buissness requirement 
+
+Orchestration  (Automation , Scheduling) -> Airflow -> Composer 
+
+
+---------------------------------------------------------------------------------
+
+GCP (Google Cloud) :- Requiremnt -> Secure (Private) 
+
+Data Ingestion :- 
+Data transfer services (storage transfer service , transfer appliance) -> GCS or BQ
+Pub sub - Ingestion for realtime time (messaging queue) , integration support 
+Dataflow, Dataproc , Datafusion -> ETL 
+
+Data Storage :- 
+GCS -CLoud Storage 
+(central repo )
+Object Storage
+
+Relational db's - > Cloud sql (instance of mysl , postgresql), Cloud spanner (horizontal scaling) -> Write Specific
+Non- relational - Bigtable (HBase) (column family database)  , Datastore & Firestore (mongo db object databse)
+
+Data Transform: -
+
+Dataproc -> Managed Hadoop/Spark Cluster 
+data processing tool -> Transform 
+Distributed computation power
+Master - SLave architecture 
+
+Dataflow -> 
+Straeming data 
+Apache beam (batch + stream) 
+
+Datafusion -> 
+GUI tool 
+Drag and drop 
+
+
+Warehouse:- 
+Bigquery 
+
+-managed (infra)
+- serverless (Scaling)
+- scale upto petabytes) 
+- Read specific
+
+
+- Sink (To store data) 
+
+-Data Analyst , Scientist
+
+
+
+
+
+
+
+
+Agenda:-
+
+GCP -> 
+Demo :-
+- Dataset 
+- ETL 
+
+
+
+type of Transform operations:- 
+- Format (consitent) 
+- Schema 
+	- age string 
+	- date date 
+- column fun food -> fun_food
+- 	divide (segregate based on req) 
+- Cleaning 
+	- Remove null values (drop ) -> Speecific 
+	- 1-2 records  row level 
+		- remove record 
+		- fill values (mean , median)
+	- Dropduplicates 
+	- fill -> gender null-unknown 
+	
+- validation 
+
+
+
+
+-----------------------------------------------------------------------------------------
+
+Demo:- 
+ETL to move banking data from GCS to BQ table 
+ELT
+EL -> Extract , Loading (copy activity)
+
+Dataset link:- 
+https://www.kaggle.com/datasets/neelesh0602/bankcsv?resource=download
+
+
+Source -> demodataprocjob
+Sink -> 
+
+Dataproc:- (Migration of projects -> Spark Cluster/ Hadoop -> )-Directly move on premise to gcp , buissness req. 
+1. Configure  
+Managed hadoop Cluster:- infra is manged by google 
+On premise -> 1:n setup 
+Master 
+500 GB 
+12 worker
+300 Gb
+SDD
+
+
+Bq:- 
+
+Projectid.dataset.tablename 
+
+Serverless:- auto
+- Grow or decline according to my load 
+
+Dataflow Template:-
+Schema.json
+
+{
+  "BigQuery Schema": [
+    {"name": "age", "type": "INTEGER"},
+    {"name": "job", "type": "STRING"},
+    {"name": "marital", "type": "STRING"},
+    {"name": "education", "type": "STRING"},    
+    {"name": "default", "type": "STRING"},
+    {"name": "housing", "type": "STRING"},
+    {"name": "loan", "type": "STRING"},
+    {"name": "contact", "type": "STRING"},
+    {"name": "month", "type": "STRING"},
+    {"name": "day_of_week", "type": "STRING"},
+    {"name": "duration", "type": "INTEGER"},
+    {"name": "campaign", "type": "INTEGER"},
+    {"name": "pdays", "type": "INTEGER"},
+    {"name": "previous", "type": "INTEGER"},
+    {"name": "poutcome", "type": "STRING"},
+    {"name": "emp_var_rate", "type": "FLOAT"},
+    {"name": "cons_price_idx", "type": "FLOAT"},
+    {"name": "cons_conf_idx", "type": "FLOAT"},
+    {"name": "euribor3m", "type": "FLOAT"},
+    {"name": "nr_employed", "type": "FLOAT"},
+    {"name": "y", "type": "INTEGER"}
+  ]
+}
+
+
+Source:- 
+Required buckets:-
+File,
+Schema.json,
+temp file bucket
+
+Sink:-
+BQ table 
+Bank CSV:-
+CREATE TABLE dataflowSink.bankCSV (
+  age INT64,
+  job STRING,
+  marital STRING,
+  education STRING,
+  `default` STRING,
+  housing STRING,
+  loan STRING,
+  contact STRING,
+  month STRING,
+  day_of_week STRING,
+  duration INT64,
+  campaign INT64,
+  pdays INT64,
+  previous INT64,
+  poutcome STRING,
+  emp_var_rate FLOAT64,
+  cons_price_idx FLOAT64,
+  cons_conf_idx FLOAT64,
+  euribor3m FLOAT64,
+  nr_employed FLOAT64,
+  y INT64
+);
+
+
+Malformed Records Schema
+
+CREATE TABLE dataflowSink.bankCSV_bad_records (
+  RawContent STRING,
+  ErrorMsg STRING
+);
+
+
+Parameter:-
+template:- CSV files on colud to bigquery
+source-> source file location 
+target-> json schema, bq output table , temp location
+delimiter
+CSV format - Default (Case sensitive), enum ,excel 
+
+
+Link for refernce to templates :- https://cloud.google.com/dataflow/docs/guides/templates/provided/cloud-storage-csv-to-bigquery
+
+
+Dataproc Spark Cluster:-
+
+Without transform copy activity :-
+
+
+from pyspark.sql import SparkSession
+from pyspark.sql.types import StructType, StructField, IntegerType, StringType, FloatType
+
+# Create Spark session with BigQuery support
+spark = SparkSession.builder \
+    .appName("CSV_to_BigQuery") \
+    .getOrCreate()
+
+# Define schema matching your CSV file
+schema = StructType([
+    StructField("age", IntegerType(), True),
+    StructField("job", StringType(), True),
+    StructField("marital", StringType(), True),
+    StructField("education", StringType(), True),
+    StructField("default", StringType(), True),
+    StructField("housing", StringType(), True),
+    StructField("loan", StringType(), True),
+    StructField("contact", StringType(), True),
+    StructField("month", StringType(), True),
+    StructField("day_of_week", StringType(), True),
+    StructField("duration", IntegerType(), True),
+    StructField("campaign", IntegerType(), True),
+    StructField("pdays", IntegerType(), True),
+    StructField("previous", IntegerType(), True),
+    StructField("poutcome", StringType(), True),
+    StructField("emp_var_rate", FloatType(), True),
+    StructField("cons_price_idx", FloatType(), True),
+    StructField("cons_conf_idx", FloatType(), True),
+    StructField("euribor3m", FloatType(), True),
+    StructField("nr_employed", FloatType(), True),
+    StructField("y", IntegerType(), True)
+])
+
+# Read CSV from GCS with header and schema
+df = spark.read.format("csv") \
+    .option("header", "true") \
+    .schema(schema) \
+    .load("gs://dataflowjobrun/banking.csv")
+
+# Write to BigQuery, create table if it doesn't exist
+df.write.format("bigquery") \
+    .option("table", "core-parsec-467711-g4.dataflowSink.bankCSVDataproc") \
+    .option("writeMethod", "direct") \
+    .mode("overwrite") \
+    .save()
+
+spark.stop()
+
+
+With Transforms 
+
+Transforms:- 
+from pyspark.sql import SparkSession
+from pyspark.sql.types import *
+from pyspark.sql.functions import col, when
+
+# Create Spark session with BigQuery support
+spark = SparkSession.builder \
+    .appName("CSV_to_BigQuery_with_Transform") \
+    .getOrCreate()
+
+# Original schema
+schema = StructType([
+    StructField("age", IntegerType(), True),
+    StructField("job", StringType(), True),
+    StructField("marital", StringType(), True),
+    StructField("education", StringType(), True),
+    StructField("default", StringType(), True),
+    StructField("housing", StringType(), True),
+    StructField("loan", StringType(), True),
+    StructField("contact", StringType(), True),
+    StructField("month", StringType(), True),
+    StructField("day_of_week", StringType(), True),
+    StructField("duration", IntegerType(), True),
+    StructField("campaign", IntegerType(), True),
+    StructField("pdays", IntegerType(), True),
+    StructField("previous", IntegerType(), True),
+    StructField("poutcome", StringType(), True),
+    StructField("emp_var_rate", FloatType(), True),
+    StructField("cons_price_idx", FloatType(), True),
+    StructField("cons_conf_idx", FloatType(), True),
+    StructField("euribor3m", FloatType(), True),
+    StructField("nr_employed", FloatType(), True),
+    StructField("y", IntegerType(), True)
+])
+
+# Read CSV from GCS with schema and header
+df = spark.read.format("csv") \
+    .option("header", "true") \
+    .schema(schema) \
+    .load("gs://dataflowjobrun/banking.csv")
+
+# Transformations:
+# 1. Filter out rows with missing or negative age
+df_filtered = df.filter((col("age").isNotNull()) & (col("age") >= 0))
+
+# 2. Add a new column 'is_senior' if age > 60
+df_transformed = df_filtered.withColumn("is_senior", when(col("age") > 60, True).otherwise(False))
+
+
+Apache beam - Streaming
+Flink- Stream Processing of data 
+
+from pyspark.sql import SparkSession
+from pyspark.sql.types import *
+from pyspark.sql.functions import col, when
+
+# Create Spark session with BigQuery support
+spark = SparkSession.builder \
+    .appName("CSV_to_BigQuery_with_Transform") \
+    .getOrCreate()
+
+# Original schema
+schema = StructType([
+    StructField("age", IntegerType(), True),
+    StructField("job", StringType(), True),
+    StructField("marital", StringType(), True),
+    StructField("education", StringType(), True),
+    StructField("default", StringType(), True),
+    StructField("housing", StringType(), True),
+    StructField("loan", StringType(), True),
+    StructField("contact", StringType(), True),
+    StructField("month", StringType(), True),
+    StructField("day_of_week", StringType(), True),
+    StructField("duration", IntegerType(), True),
+    StructField("campaign", IntegerType(), True),
+    StructField("pdays", IntegerType(), True),
+    StructField("previous", IntegerType(), True),
+    StructField("poutcome", StringType(), True),
+    StructField("emp_var_rate", FloatType(), True),
+    StructField("cons_price_idx", FloatType(), True),
+    StructField("cons_conf_idx", FloatType(), True),
+    StructField("euribor3m", FloatType(), True),
+    StructField("nr_employed", FloatType(), True),
+    StructField("y", IntegerType(), True)
+])
+
+# Read CSV from GCS with schema and header
+df = spark.read.format("csv") \
+    .option("header", "true") \
+    .schema(schema) \
+    .load("gs://dataflowjobrun/banking.csv")
+
+# Transformations:
+# 1. Filter out rows with missing or negative age
+df_filtered = df.filter((col("age").isNotNull()) & (col("age") >= 0))
+
+# 2. Add a new column 'is_senior' if age > 60
+df_transformed = df_filtered.withColumn("is_senior", when(col("age") > 60, True).otherwise(False))
+
+# 3. Create a new dataset in BigQuery 
+
+# Write the transformed data to a new BigQuery table
+df_transformed.write.format("bigquery") \
+    .option("table", "core-parsec-467711-g4.dataflowSink.clean_bankCSV") \
+    .option("writeMethod", "direct") \
+    .mode("overwrite") \
+    .save()
+
+spark.stop()
+
