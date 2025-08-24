@@ -1,0 +1,51 @@
+The following table lists optional Spark properties and their default values that you can override when you submit a Spark job.
+
+Key	Description	Default value
+spark.archives	A comma-separated list of archives that Spark extracts into each executor's working directory. Supported file types include .jar, .tar.gz, .tgz and .zip. To specify the directory name to extract, add # after the file name that you want to extract. For example, file.zip#directory.	NULL
+spark.authenticate	Option that turns on authentication of Spark's internal connections.	TRUE
+spark.driver.cores	The number of cores that the driver uses.	4
+spark.driver.extraJavaOptions	Extra Java options for the Spark driver.	NULL
+spark.driver.memory	The amount of memory that the driver uses.	14G
+spark.dynamicAllocation.enabled	Option that turns on dynamic resource allocation. This option scales up or down the number of executors registered with the application, based on the workload.	TRUE
+spark.dynamicAllocation.executorIdleTimeout	The length of time that an executor can remain idle before Spark removes it. This only applies if you turn on dynamic allocation.	60s
+spark.dynamicAllocation.initialExecutors	The initial number of executors to run if you turn on dynamic allocation.	3
+spark.dynamicAllocation.maxExecutors	The upper bound for the number of executors if you turn on dynamic allocation.	
+For 6.10.0 and higher, infinity
+
+For 6.9.0 and lower, 100
+
+spark.dynamicAllocation.minExecutors	The lower bound for the number of executors if you turn on dynamic allocation.	0
+spark.emr-serverless.allocation.batch.size	The number of containers to request in each cycle of executor allocation. There is a one-second gap between each allocation cycle.	20
+spark.emr-serverless.driver.disk	The Spark driver disk.	20G
+spark.emr-serverless.driverEnv.[KEY]	Option that adds environment variables to the Spark driver.	NULL
+spark.emr-serverless.executor.disk	The Spark executor disk.	20G
+spark.emr-serverless.memoryOverheadFactor	Sets the memory overhead to add to the driver and executor container memory.	0.1
+spark.emr-serverless.driver.disk.type	The disk type attached to Spark driver.	Standard
+spark.emr-serverless.executor.disk.type	The disk type attached to Spark executors.	Standard
+spark.executor.cores	The number of cores that each executor uses.	4
+spark.executor.extraJavaOptions	Extra Java options for the Spark executor.	NULL
+spark.executor.instances	The number of Spark executor containers to allocate.	3
+spark.executor.memory	The amount of memory that each executor uses.	14G
+spark.executorEnv.[KEY]	Option that adds environment variables to the Spark executors.	NULL
+spark.files	A comma-separated list of files to go in the working directory of each executor. You can access the file paths of these files in the executor with SparkFiles.get(fileName).	NULL
+spark.hadoop.hive.metastore.client.factory.class	The Hive metastore implementation class.	NULL
+spark.jars	Additional jars to add to the runtime classpath of the driver and executors.	NULL
+spark.network.crypto.enabled	Option that turns on AES-based RPC encryption. This includes the authentication protocol added in Spark 2.2.0.	FALSE
+spark.sql.warehouse.dir	The default location for managed databases and tables.	The value of $PWD/spark-warehouse
+spark.submit.pyFiles	A comma-separated list of .zip, .egg, or .py files to place in the PYTHONPATH for Python apps.	NULL
+The following table lists the default Spark submit parameters.
+
+Key	Description	Default value
+archives	A comma-separated list of archives that Spark extracts into each executor's working directory.	NULL
+class	The application's main class (for Java and Scala apps).	NULL
+conf	An arbitrary Spark configuration property.	NULL
+driver-cores	The number of cores that the driver uses.	4
+driver-memory	The amount of memory that the driver uses.	14G
+executor-cores	The number of cores that each executor uses.	4
+executor-memory	The amount of memory that the executor uses.	14G
+files	A comma-separated list of files to place in the working directory of each executor. You can access the file paths of these files in the executor with SparkFiles.get(fileName).	NULL
+jars	A comma-separated list of jars to include on the driver and executor classpaths.	NULL
+num-executors	The number of executors to launch.	3
+py-files	A comma-separated list of .zip, .egg, or .py files to place on the PYTHONPATH for Python apps.	NULL
+verbose	Option that turns on additional debug output.	NULL
+
