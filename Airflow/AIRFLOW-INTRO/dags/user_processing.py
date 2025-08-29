@@ -8,21 +8,6 @@ import requests
 #ti is reserved keyword in airflow
 #xcom is machanism to share an arbitary task in airflow, stored in metadata database 
 
-def _extract_user(ti):
-    # fake_user=ti.xcom_pull(task_ids="is_api_available")
-    response = requests.get(
-            "https://raw.githubusercontent.com/marclamberti/datasets/refs/heads/main/fakeuser.json"
-        )
-    fake_user=response.json()
-    return {
-        "id":fake_user["id"],
-        "firstname":fake_user["personalInfo"]["firstName"],
-        "lastName":fake_user["personalInfo"]["lastName"],
-        "email":fake_user["personalInfo"]["email"],
-        
-    }
-    print(fake_user)
-
 @dag(
     dag_id="user_processing",
     start_date=datetime(2025, 8, 1),
@@ -57,14 +42,32 @@ def user_processing():
             fake_user = None
         return PokeReturnValue(is_done=condition, xcom_value=fake_user)
 
-    api_sensor = is_api_available()
+    
 
-    extract_user=PythonOperator(
-        task_id="extract_user",
-        python_callable=_extract_user
-    )
+    @task
+    def extract_user(fake_user):
+        return {
+            "id":fake_user["id"],
+            "firstname":fake_user["personalInfo"]["firstName"],
+            "lastName":fake_user["personalInfo"]["lastName"],
+            "email":fake_user["personalInfo"]["email"],
+            
+        }
+        print(fake_user)
+    
+    @task
+    def process_user(user_info):
+        import csv  #alows to manipulate csv file
+        # user_info={'id': '1293234', 'firstname': 'John', 'lastName': 'Doe', 'email': 'johndoe@example.com'}
+        with open("/tmp/user_info.csv", mode="w", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=user_info.keys())
+            writer.writeheader()
+            writer.writerow(user_info)
 
-    create_table >> api_sensor >>extract_user  # added task dependency
+    fake_user = is_api_available()
+    user_info = extract_user(fake_user)
+    process_user(user_info)
+    # create_table >> api_sensor >>extract_user >> process_user # added task dependency
 
    
 
